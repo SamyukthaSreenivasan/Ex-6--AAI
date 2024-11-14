@@ -17,12 +17,69 @@ Step 5:Iterate through each word in the tokenized text.<br>
 •	Extract synonyms and antonyms using lemma.name() and lemma.antonyms()[0].name() respectively.<br>
 •	Print the unique sets of synonyms and antonyms.
 <H3>Program:</H3>
+```
+!pip install nltk
 
-Insert your code here
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import wordnet
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
 
+
+f = open("/content/sample_data.txt", "r")
+sentences = f.readlines()
+f.close()
+verbs = [[] for _ in sentences]
+i=0
+for sentence in sentences:
+  print("Sentence",i+1,":", sentence)
+
+  # Tokenize the sentence into words
+  words = word_tokenize(sentence)
+
+  # Identify the parts of speech for each word
+  pos_tags = nltk.pos_tag(words)
+
+  # Print the parts of speech
+  for word,tag in pos_tags:
+    print(word,"->",tag)
+
+    # Save verbs
+    if tag.startswith('VB'):
+      verbs[i].append(word)
+  i+=1
+  print("\n\n") 
+
+# Identify synonyms and antonyms for each word
+print("Synonyms and Antonymns for verbs in each sentence:\n")
+i=0
+for sentence in sentences:
+  print("Sentence",i+1,":", sentence)
+  pos_tags = nltk.pos_tag(verbs[i])
+  for word,tag in pos_tags:
+    print(word,"->",tag)
+    synonyms = []
+    antonyms = []
+    for syn in wordnet.synsets(word):
+      for lemma in syn.lemmas():
+        synonyms.append(lemma.name())
+        if lemma.antonyms():
+          for antonym in lemma.antonyms():
+            antonyms.append(antonym.name())
+
+    # Print the synonyms and antonyms
+    print("Synonyms:",set(synonyms))
+    print("Antonyms:", set(antonyms) if antonyms else "None")
+    print()
+  print("\n\n")
+  i+=1
+```
 <H3>Output</H3>
+![image](https://github.com/user-attachments/assets/d145c7f4-ee38-46fe-a826-5c0e1017c8ed)
 
-Show your results here
+![image](https://github.com/user-attachments/assets/1489434b-e508-40d1-b77f-a1ccb96c7504)
 
 <H3>Result:</H3>
 Thus ,the program to perform the Parts of Speech identification and Synonymis executed sucessfully.
