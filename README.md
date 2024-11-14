@@ -1,7 +1,6 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME SAMYUKTHA S</H3>
+<H3>ENTER YOUR REGISTER NO.212222240089</H3>
 <H3>EX. NO.6</H3>
-<H3>DATE:</H3>
 <H1 ALIGN =CENTER>Implementation of Semantic ANalysis</H1>
 <H3>Aim: to perform Parts of speech identification and Synonym using Natural Language Processing (NLP) techniques. </H3> 
  <BR>
@@ -17,7 +16,7 @@ Step 5:Iterate through each word in the tokenized text.<br>
 •	Extract synonyms and antonyms using lemma.name() and lemma.antonyms()[0].name() respectively.<br>
 •	Print the unique sets of synonyms and antonyms.
 <H3>Program:</H3>
-```
+```python
 !pip install nltk
 
 import nltk
@@ -75,7 +74,7 @@ for sentence in sentences:
     print()
   print("\n\n")
   i+=1
-```
+```python
 <H3>Output</H3>
 ![image](https://github.com/user-attachments/assets/d145c7f4-ee38-46fe-a826-5c0e1017c8ed)
 
