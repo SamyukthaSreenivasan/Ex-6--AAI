@@ -74,7 +74,7 @@ for sentence in sentences:
     print()
   print("\n\n")
   i+=1
-```python
+```
 <H3>Output</H3>
 ![image](https://github.com/user-attachments/assets/d145c7f4-ee38-46fe-a826-5c0e1017c8ed)
 
